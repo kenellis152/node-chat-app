@@ -4,10 +4,10 @@ var socket = io();
 socket.on('connect', function () {
   console.log('Connected to server');
 
-  socket.emit('createMessage', {
-    from: 'user1',
-    text: 'emitting createMessage upon connection to server'
-  })
+  // socket.emit('createMessage', {
+  //   from: 'user1',
+  //   text: 'emitting createMessage upon connection to server'
+  // })
 
 });
 

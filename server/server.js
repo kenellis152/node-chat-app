@@ -5,7 +5,7 @@ const socketIO = require('socket.io');
 
 const {generateMessage, generateLocationMessage} = require('./utils/message');
 const {isRealString} = require('./utils/validation');
-const {Users} = require('./utils/Users');
+const {Users} = require('./utils/users');
 
 const publicPath = path.join(__dirname, '../public');
 const port = process.env.PORT || 3000; // heroku port config
@@ -44,7 +44,7 @@ io.on('connection', (socket) => {
     if (user && isRealString(message.text)) {
       io.to(user.room).emit('newMessage', generateMessage(user.name, message.text));
     }
-    
+
     console.log('createMessage: ', message);
     callback();
   });
